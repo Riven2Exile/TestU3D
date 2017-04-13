@@ -1,0 +1,6 @@
+s Idle False True 0
+s Run False False 0
+s Die False False 0
+s Attack1 True False 0.7
+s Hit False False 0
+s DieFly False False 0 0.14:4000001
