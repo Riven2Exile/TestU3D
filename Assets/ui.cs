@@ -5,7 +5,13 @@ using UnityEditor;
 public class ui : MonoBehaviour {
 
 	// Use this for initialization
-    Camera _cam = null;
+    Camera _cam = null;  //摄像机
+
+    
+    //// 游戏状态变量 start
+    bool _is_login = false;
+    //// 游戏状态变量 end
+
 
 	void Start () {
         Debug.Log("start!!");
@@ -70,6 +76,9 @@ public class ui : MonoBehaviour {
                         person_prefab.transform.position = new Vector3(134,25,50);
                         _cam.transform.position = new Vector3(94, 60, 20);
                         _cam.transform.LookAt(person_prefab.transform.position);
+
+
+                        _is_login = true; //设置为登录
                     }
                         
                     
@@ -86,7 +95,8 @@ public class ui : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
+        // todo: 如果是游戏状态下, 开始控制人物移动~
 	}
 
 
