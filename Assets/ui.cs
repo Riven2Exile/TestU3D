@@ -10,6 +10,8 @@ public class ui : MonoBehaviour {
     
     //// 游戏状态变量 start
     bool _is_login = false;
+
+    GameObject _main_person = null;
     //// 游戏状态变量 end
 
 
@@ -71,11 +73,14 @@ public class ui : MonoBehaviour {
 
                         // 放一个人物:
                         GameObject person = MyGetResByEditor("Assets/Asset/Char/Model/mage_female_1_Prefab.prefab");
-                        GameObject person_prefab = GameObject.Instantiate(person) as GameObject;
+                        _main_person = GameObject.Instantiate(person) as GameObject;
                         //
-                        person_prefab.transform.position = new Vector3(134,25,50);
+                        _main_person.transform.position = new Vector3(134, 25, 50);
                         _cam.transform.position = new Vector3(94, 60, 20);
-                        _cam.transform.LookAt(person_prefab.transform.position);
+                        _cam.transform.LookAt(_main_person.transform.position);
+
+                        // 读取动作
+                        GameObject s_run = MyGetResByEditor("Assets/Asset/Char/Model/mage_female_1@run.FBX");
 
 
                         _is_login = true; //设置为登录
@@ -97,6 +102,14 @@ public class ui : MonoBehaviour {
 	void Update () {
 	    
         // todo: 如果是游戏状态下, 开始控制人物移动~
+        if (_is_login)
+        {
+            float w = (Input.GetAxis("Horizontal"));
+            _main_person.transform.Translate(w * 0.1f, 0, 0);
+            // 切换状态
+            //Animator ator = _main_person.GetComponent<Animator>();
+            //ator.Play("run");
+        }
 	}
 
 
