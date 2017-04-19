@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 51f3c05c164961d40bea90497f6a43f1
-timeCreated: 1492606535
+guid: 125d9aa0a517c934ab16f458cb8defc9
+timeCreated: 1492606225
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: an_kaishiyouxi_1_0
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,22 +49,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: an_kaishiyouxi_1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 173
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -86.5, y: 45}
-        - {x: -86.5, y: -45}
-        - {x: 86.5, y: -45}
-        - {x: 86.5, y: 45}
+    sprites: []
     outline: []
   spritePackingTag: login
   userData: 
