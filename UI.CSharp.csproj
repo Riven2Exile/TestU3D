@@ -57,6 +57,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -68,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Asset\machine_state.cs" />
     <Compile Include="Assets\UIWrapper.cs" />
     <Compile Include="Assets\ui.cs" />
   </ItemGroup>
@@ -76,6 +83,7 @@
     <None Include="Assets\Asset\Shader\MW_Display.shader" />
     <None Include="Assets\Asset\Shader\MW_T4MNormal.shader" />
     <None Include="Assets\Asset\Shader\MW_T4MNormal_UV.shader" />
+    <None Include="Assets\test.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
