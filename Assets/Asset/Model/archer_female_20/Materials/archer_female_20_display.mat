@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: archer_female_20_display
+  m_Shader: {fileID: 4800000, guid: 93cbc0b4c96e75646b43372da5371d51, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: bdadc823b6cb3614b82bee7ce6844918, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: cea865b6bf7217147bf0c76579eb249c, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Stencil
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Power1
+        second: 16
+      data:
+        first:
+          name: _Power2
+        second: 20
+      data:
+        first:
+          name: _Power3
+        second: 2
+      data:
+        first:
+          name: _HairUVx
+        second: 0.5
+      data:
+        first:
+          name: _HairUVy
+        second: 0.38
+    m_Colors:
+      data:
+        first:
+          name: _PLight1Dir
+        second: {r: -1, g: 0.7, b: 0.8, a: 0}
+      data:
+        first:
+          name: _PLight1Color
+        second: {r: 0.553, g: 0.553, b: 0.553, a: 0.49}
+      data:
+        first:
+          name: _PLight2Dir
+        second: {r: -0.13, g: 0.85, b: -1.9, a: 0}
+      data:
+        first:
+          name: _PLight2Color
+        second: {r: 1, g: 0.76, b: 0.76, a: 0.11}
+      data:
+        first:
+          name: _PLight3Dir
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _PLight3Color
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _PLight4Dir
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _PLight4Color
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _PLightAttenSq
+        second: {r: 0.4, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _PLightShadowStrength
+        second: {r: 0.3, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _LightDir1
+        second: {r: -6.55, g: 8.89, b: -17.64, a: -0.02}
+      data:
+        first:
+          name: _LightColor1
+        second: {r: 1, g: 0.94, b: 0.74, a: 0.28}
+      data:
+        first:
+          name: _LightDir2
+        second: {r: -2, g: 0.2, b: 0.8, a: 0}
+      data:
+        first:
+          name: _LightColor2
+        second: {r: 0.36, g: 0.33, b: 0.9, a: 1}
+      data:
+        first:
+          name: _LightDir3
+        second: {r: 0.3, g: 0.4, b: -0.31, a: 0}
+      data:
+        first:
+          name: _LightColor3
+        second: {r: 0.47, g: 0.35, b: 0.13, a: 0.3}
