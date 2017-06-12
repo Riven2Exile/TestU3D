@@ -20,6 +20,6 @@ public abstract class ResLoader
         }
     }
 
-    // 加载资源
+    // 同步加载资源
     public abstract GameObject Load(string strPath);
 }

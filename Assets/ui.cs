@@ -4,9 +4,13 @@ using UnityEditor;
 
 public class ui : MonoBehaviour {
 
+    // 配置 
+    
+
 	// Use this for initialization
     Camera _cam = null;  //摄像机
 
+    ResLoader _loader = null;
     
     //// 游戏状态变量 start
     bool _is_login = false;
@@ -17,6 +21,12 @@ public class ui : MonoBehaviour {
 
 	void Start () {
         Debug.Log("start!!");
+        if (AppConst._bUseAB) {
+            _loader = ResLoader.CreateLoader(ResLoader.LoadType.ab);
+        }
+        else {
+            _loader = ResLoader.CreateLoader(ResLoader.LoadType.editor);
+        }
 
         //获得摄像机
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -27,7 +37,7 @@ public class ui : MonoBehaviour {
         }
 
         // 创建UI
-        GameObject obj = AssetDatabase.LoadAssetAtPath("Assets/Asset/UI/Login.prefab", typeof(UnityEngine.Object)) as GameObject;
+        GameObject obj = _loader.Load("Assets/Asset/UI/Login.prefab");
         if (obj)
         {
             GameObject go = GameObject.Instantiate(obj) as GameObject;
@@ -105,7 +115,27 @@ public class ui : MonoBehaviour {
         if (_is_login)
         {
             float w = (Input.GetAxis("Horizontal"));
-            _main_person.transform.Translate(w * 0.1f, 0, 0);
+            if (w != 0.0f) {
+                //_main_person.transform.Translate(w * 0.1f, 0, 0);  //// 开始处理人物移动加摄像机跟踪
+
+                //人物的转向
+                //_main_person.transform.Rotate(new Vector3(0, 10.0f, 0));
+                Vector3 tr = _main_person.transform.position;
+
+                Vector3 tr_temp = new Vector3(tr.x + 10, tr.y, tr.z);
+                Vector3 temp = new Vector3(130, 25, 51);
+                //_main_person.transform.Rotate(new Vector3(0, 1, 0), 1f, Space.World); //自转
+
+                //_main_person.transform.RotateAround(temp, Vector3.up, 1f); //公转
+
+                Animator ator = _main_person.GetComponent<Animator>();
+                ator.Play("run"); // 目前重复跑的方法之一就是直接改变 animator clip 里面的loop 
+            }
+            else {
+                Animator ator = _main_person.GetComponent<Animator>();
+                ator.Play("idle");
+            }
+            
             // 切换状态
             //Animator ator = _main_person.GetComponent<Animator>();
             //ator.Play("run");
@@ -115,7 +145,7 @@ public class ui : MonoBehaviour {
 
     public GameObject MyGetResByEditor(string strPath)
     {
-        GameObject obj = AssetDatabase.LoadAssetAtPath(strPath, typeof(UnityEngine.Object)) as GameObject;
+        GameObject obj = _loader.Load(strPath);
         if (obj == null)
         {
             Debug.Log("创建" + strPath + "失败");
