@@ -36,7 +36,7 @@ public class ui : MonoBehaviour {
             _cam = camera.GetComponent<Camera>();
         }
 
-        // 创建UI
+        // 创建登录 UI
         GameObject obj = _loader.Load("Assets/Asset/UI/Login.prefab");
         if (obj)
         {
@@ -95,10 +95,15 @@ public class ui : MonoBehaviour {
 
                         _is_login = true; //设置为登录
                     }
-                        
-                    
                 }); //加载一个场景
             }
+
+            Transform tfot = go.transform.FindChild("login").FindChild("loginScene").FindChild("btn-selectServer");
+            tfot.GetComponent<UIWrapper>().BindButtonClick((e) => {
+                GameObject obj1 = MyGetResByEditor("Assets/Asset/UI/UIRuneMain.prefab");
+                GameObject go1 = GameObject.Instantiate(obj1) as GameObject;
+                go1.SetActive(true);
+            });
         }
         else
         {
