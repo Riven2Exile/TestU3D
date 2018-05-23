@@ -1,4 +1,7 @@
-﻿Shader "MW/Display" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "MW/Display" {
     Properties {
         _MainTex ("MainTex", 2D) = "white" {}
 
@@ -165,7 +168,7 @@
 			v2f vert(appdata_tan v)
 			{
 				v2f o;
-				o.sv_pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.sv_pos = UnityObjectToClipPos(v.vertex);
 				o.uv = v.texcoord;
 				half3 shadowColor;
 				//点光源处理
@@ -177,9 +180,9 @@
 					_PLightAttenSq, _PLightShadowStrength,
 					v.vertex, v.normal);
 				o.PtColor.rgb = PtLight;
-				o.normalWorld.rgb = mul((half3x3)_Object2World, v.normal); 
+				o.normalWorld.rgb = mul((half3x3)unity_ObjectToWorld, v.normal); 
 
-				float3 posWorld = mul(_Object2World, v.vertex);
+				float3 posWorld = mul(unity_ObjectToWorld, v.vertex);
 				o.uv.zw = posWorld.xy;
 				o.PtColor.a = posWorld.z;
 

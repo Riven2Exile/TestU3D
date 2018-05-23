@@ -44,13 +44,13 @@ public class ui : MonoBehaviour {
             go.SetActive(true);
 
             // 先写死取子按钮, 设置绑定
-            UnityEngine.Transform ctrl_obj = go.transform.FindChild("login");
+            UnityEngine.Transform ctrl_obj = go.transform.Find("login");
             if (ctrl_obj != null)
             {
-                ctrl_obj = ctrl_obj.FindChild("loginScene");
+                ctrl_obj = ctrl_obj.Find("loginScene");
                 if(ctrl_obj != null)
                 {
-                    ctrl_obj = ctrl_obj.FindChild("btn-start");
+                    ctrl_obj = ctrl_obj.Find("btn-start");
                     if (ctrl_obj == null) { Debug.Log("btn-start not found"); }
                 }
                 else{
@@ -98,7 +98,7 @@ public class ui : MonoBehaviour {
                 }); //加载一个场景
             }
 
-            Transform tfot = go.transform.FindChild("login").FindChild("loginScene").FindChild("btn-selectServer");
+            Transform tfot = go.transform.Find("login").Find("loginScene").Find("btn-selectServer");
             tfot.GetComponent<UIWrapper>().BindButtonClick((e) => {
                 GameObject obj1 = MyGetResByEditor("Assets/Asset/UI/UIRuneMain.prefab");
                 GameObject go1 = GameObject.Instantiate(obj1) as GameObject;

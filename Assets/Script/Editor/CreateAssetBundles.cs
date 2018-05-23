@@ -12,7 +12,7 @@ public class CreateAssetBundles
                 Debug.Log( AssetDatabase.GetAssetPath(selection[i]) );
             }
 
-            BuildPipeline.BuildAssetBundle(Selection.activeObject, selection, AppConst._ab_pack_name, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets);
+            BuildPipeline.BuildAssetBundle(Selection.activeObject, selection, AppConst._ab_pack_name, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets, BuildTarget.Android);
         }
     
 }

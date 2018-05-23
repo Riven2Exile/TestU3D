@@ -1,3 +1,7 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "MW/T4MNormal" 
 {
 	Properties {
@@ -59,11 +63,11 @@ Shader "MW/T4MNormal"
 			v2f vert (appdata_t v){
 				v2f o;
 
-				o.sv_pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.sv_pos = UnityObjectToClipPos(v.vertex);
 				UNITY_TRANSFER_FOG(o,o.sv_pos);
 				o.uv_cl.xy = v.texcoord.xy;
 				o.uv_cl.zw = v.texcoord1.xy;
-				o.posWorld = mul(_Object2World, v.vertex);
+				o.posWorld = mul(unity_ObjectToWorld, v.vertex);
 
 				//切线空间的视角方向
 				//TANGENT_SPACE_ROTATION;
@@ -204,11 +208,11 @@ Shader "MW/T4MNormal"
             v2f vert(a2v v) {  
                 v2f o;  
 				
-                o.pos = mul(UNITY_MATRIX_MVP, v.vertex); 
+                o.pos = UnityObjectToClipPos(v.vertex); 
 				//o.uv_Control = v.texcoord;
 
-				o.worldNormal = mul(SCALED_NORMAL, (float3x3)_World2Object); 
-				o.lightDir = mul((float3x3)_Object2World, ObjSpaceLightDir(v.vertex));  
+				o.worldNormal = mul(SCALED_NORMAL, (float3x3)unity_WorldToObject); 
+				o.lightDir = mul((float3x3)unity_ObjectToWorld, ObjSpaceLightDir(v.vertex));  
 
 				////获取切线空间的lightdir数据
 				//TANGENT_SPACE_ROTATION;
